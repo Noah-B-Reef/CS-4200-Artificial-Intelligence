@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import time
+import sys
 
 class Node:
 
@@ -409,19 +410,21 @@ def Experiment():
     df.to_csv('hill_climbing.csv', index=False)
 
 def main():
-    '''
-    intital = generate_random_state()
-    print("Initial State: ")
-    print_state(intital)
-    print("fitness: ", measure_fitness(intital))
+    if sys.argv[1] == 'hill_climbing':
+       state = generate_random_state()
+       sol, cost = uphill_ascent(state)
+       print("Initital State: ")
+       print_state(state)
+       print("Solution: ")
+       print_state(sol)
+       print("Search Cost: ", cost)
 
-    sol,cost = uphill_ascent(intital)
-
-    print("Solution: ")
-    print_state(sol)
-
-    print("fitness: ", measure_fitness(sol))
-    '''
-    sol = genetic_algorithm()
-    print_state(sol)
-Experiment()
+    elif sys.argv[1] == 'genetic':
+        sol = genetic_algorithm()
+        print("Solution: ")
+        print_state(sol)
+        print("Fitness: ", 1/np.exp(measure_fitness(sol)))
+    
+    elif sys.argv[1] == 'experiment':
+        Experiment()
+main()
