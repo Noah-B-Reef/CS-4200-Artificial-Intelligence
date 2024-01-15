@@ -1,0 +1,3 @@
+# How to Run Code:
+
+To run the program simply run ```python main.py``` within the '''NoahReef_4200p3''' directory. After running it will prompt the user if they would like to go first or not (enter ```y``` for yes and ```n``` for no). Each time it's the users turn, the user will be prompted for their move in which they will enter the row column to denote their move. For example if the user wanted to place an O in row A, column 2 then the user would enter ```a2``` as their move. The game will run until a either the user or computer wins, at which point a move history will be displayed.
